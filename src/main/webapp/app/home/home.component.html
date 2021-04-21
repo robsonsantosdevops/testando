@@ -1,0 +1,32 @@
+<div class="row">
+    <div class="col-md-5">
+        <span class="hipster img-fluid rounded"></span>
+    </div>
+    <div class="col-md-7">
+        <h1 class="display-4" style="text-align: center">Bem Vindo(a) ao Elmore Plus!</h1>
+        <p class="lead"></p>
+
+        <div [ngSwitch]="isAuthenticated()">
+            <div class="alert alert-success" *ngSwitchCase="true">
+                <h3><span *ngIf="account"> Bom te ver "{{account.login}}".</span></h3>
+            </div>
+
+            <div class="alert alert-info" *ngSwitchCase="false">
+                <h2>
+                    <span>Faça agora seu </span>
+                    <a class="alert-link" (click)="login()">login</a>.
+                </h2>
+            </div>
+            <div class="alert alert-warning" *ngSwitchCase="false">
+                <span>Ainda não tem uma conta na Rede Social mais descolada da cidade?</span>
+                <br/>
+                <a class="alert-link" routerLink="register">Crie sua conta</a>
+            </div>
+        </div>
+        <div style="padding-top: 250px; text-align: center">
+            <p>
+                <span>Material do Curso</span> <a href="http://www.missaodevops.com.br" target="_blank" rel="noopener">Missão DevOps</a>!
+            </p>
+        </div>
+    </div>
+</div>
